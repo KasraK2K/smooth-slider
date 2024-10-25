@@ -270,10 +270,20 @@ header a {
 }
 
 .carousel.prev .thumbnail .item:nth-child(1) {
-  width: 0;
-  overflow: hidden;
-  opacity: 0;
-  animation: showThumbnail 0.5s linear 1 forwards;
+  animation: showThumbnailText 1s linear 1 forwards;
+}
+@keyframes showThumbnailText {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    width: 150px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .carousel .list .item:nth-child(2) .author,
