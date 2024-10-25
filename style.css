@@ -56,7 +56,7 @@ header a {
   max-width: 80%;
   left: 50%;
   transform: translateX(-50%);
-  padding-right: 30%;
+  padding-right: min(20%, 300px);
   box-sizing: border-box;
   color: #ffffff;
   text-shadow: 0 5px 10px #000004;
@@ -154,7 +154,7 @@ header a {
   height: 40px;
   border-radius: 50px;
   background-color: #eeeeee44;
-  border: none;
+  border: 2px solid #f1683a50;
   font-family: Poppins;
   color: #ffffff;
   font-weight: 300;
@@ -310,7 +310,7 @@ header a {
 .time {
   width: 0;
   height: 5px;
-  background-color: #f1683a;
+  background-color: #;
   position: absolute;
   z-index: 100;
   top: 0;
