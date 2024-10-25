@@ -12,12 +12,19 @@ prevDom.onclick = function () {
   showSlider("prev");
 };
 
+function animation() {
+  if (animationSide === "forward") {
+    nextDom.click();
+  } else {
+    prevDom.click();
+  }
+}
+
 const timeRunning = 2000;
 const timeAutoNext = 7000;
+let animationSide = "forward";
 let runTimeOut;
-let runAutoRun = setTimeout(() => {
-  prevDom.click();
-}, timeAutoNext);
+let runAutoRun = setTimeout(animation, timeAutoNext);
 
 function showSlider(type) {
   const itemSlider = document.querySelectorAll(".carousel .list .item");
@@ -27,11 +34,13 @@ function showSlider(type) {
     listItemDom.appendChild(itemSlider[0]);
     thumbnailDom.appendChild(itemThumbnail[0]);
     carouselDom.classList.add("next");
+    animationSide = "forward";
   } else {
     let positionLastItem = itemSlider.length - 1;
     listItemDom.prepend(itemSlider[positionLastItem]);
     thumbnailDom.prepend(itemThumbnail[positionLastItem]);
     carouselDom.classList.add("prev");
+    animationSide = "backward";
   }
 
   clearTimeout(runTimeOut);
@@ -41,7 +50,5 @@ function showSlider(type) {
   }, timeRunning);
 
   clearTimeout(runAutoRun);
-  runAutoRun = setTimeout(() => {
-    nextDom.click();
-  }, timeAutoNext);
+  runAutoRun = setTimeout(animation, timeAutoNext);
 }
